@@ -1,0 +1,10 @@
+#Function for destroying a open window, can be attached to cancel button command
+def cancel_screen(self):
+    self.destroy()
+
+#Another Function that works as well, not sure which is best.
+def cancel_screen(window):
+    window.destroy()
+
+    """
+    Not sure exactly how to incorperate canceling/ modifying orders just yet until the order class is developed
