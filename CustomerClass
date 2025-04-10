@@ -1,0 +1,29 @@
+class Customer:
+
+    #Initialize Customer Count and make list for all customers to go.
+    customer_count = 0
+    all_customers = []
+
+    def __init__(self, first_name, last_name, email, phone, address):
+        Customer.customer_count += 1
+        self.customer_id = Customer.customer_count
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
+        self.phone = phone
+        self.address = address
+
+        # Store this customer in the class list
+        Customer.all_customers.append(self)
+
+
+    #Created Class method to call for creating new customer.
+    @classmethod
+    def create_customer(cls, first, last, email, phone, address):
+        new_customer = cls(first, last, email, phone, address)
+        return new_customer
+    
+    #Created Class method to call for looking at customers stored in list
+    @classmethod
+    def get_all_customers(cls):
+        return cls.all_customers
