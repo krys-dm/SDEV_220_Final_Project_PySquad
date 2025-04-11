@@ -6,6 +6,7 @@
 
 ```bash
 git clone <your-repo-url>
+or pip install -r requirements.txt (if you are pulling)
 cd backendPySquad
 ```
 
