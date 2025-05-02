@@ -1,9 +1,13 @@
+"""
+MAIN PIZZAPY SYSTEM
+"""
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 import sqlite3
 import os
 
-# --- Database Setup ---
+# Database Setup
 DB_FILE = "pizzapy.db"
 
 def init_database():
@@ -30,7 +34,7 @@ def init_database():
 
 init_database()
 
-# --- Login Window ---
+# Login Window
 class LoginWindow(tk.Tk):
     def __init__(self):
         super().__init__()
