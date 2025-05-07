@@ -217,8 +217,11 @@ class PizzaApp(tk.Tk):
             messagebox.showwarning("Missing Name", "Please enter your name.")
             return
         items = "\n".join([f"{i} - ${p:.2f}" for i, p in self.cart])
-        total = sum(p for _, p in self.cart)
-        messagebox.showinfo("Receipt", f"Customer: {name}\n\n{items}\n\nTotal: ${total:.2f}")
+        subtotal = sum(p for _, p in self.cart)
+        tax = subtotal * 0.06
+        tip = subtotal * (self.tip_percent / 100)
+        total = subtotal + tax + tip
+        messagebox.showinfo("Receipt", f"Customer: {name}\n\n{items}\n\nSubtotal: ${subtotal:.2f}\nTax: ${tax:.2f}\nTip: ${tip:.2f}\nTotal: ${total:.2f}")
         self.cart.clear()
         self.update_cart()
 
@@ -231,7 +234,10 @@ class PizzaApp(tk.Tk):
             messagebox.showwarning("Missing Name", "Please enter your name.")
             return
         desc = "; ".join(i for i, _ in self.cart)
-        total = sum(p for _, p in self.cart)
+        subtotal = sum(p for _, p in self.cart)
+        tax = subtotal * 0.06
+        tip = subtotal * (self.tip_percent / 100)
+        total = subtotal + tax + tip
         try:
             conn = sqlite3.connect("pizzapy.db")
             cur = conn.cursor()
